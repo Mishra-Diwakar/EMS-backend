@@ -1,6 +1,7 @@
 package com.clickncash.controller;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -23,10 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.clickncash.entity.User;
-import com.clickncash.model.UserRequest;
 import com.clickncash.repository.UserRepository;
-import com.clickncash.service.UserService;
-import com.clickncash.utils.ClicknCashUtils;
 import com.google.gson.Gson;
 
 import liquibase.pro.packaged.iF;
@@ -34,194 +32,25 @@ import liquibase.pro.packaged.iF;
 @RestController
 @RequestMapping("/rest/auth/user")
 public class UserController {
+	
+	List<User> users = new ArrayList<User>();
+	@PostMapping("/add")
+	public HashMap<String, Object> postMethodName(@RequestBody User entity) {
+		HashMap<String, Object> returnMap = new HashMap<String, Object>();
 
-	@Autowired
-	private UserRepository userRepository;
-
-	@Autowired
-	PasswordEncoder passwordEncoder;
-
-	@Autowired
-	private UserService userService;
-
-	@GetMapping("/all")
-	private List<User> allUsers(HttpServletRequest request) {
 		try {
-			Long userId = null;
-			if (request.getAttribute("userId") != null) {
-				userId = Long.valueOf(request.getAttribute("userId").toString());
-			} else {
-				System.out.println(" @@@ user not found of this userId @@@");
-				return null;
-			}
-			return this.userRepository.findAll();
-			
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			return null;
+			users.add(entity);
+			returnMap.put("isError", false);
+			returnMap.put("msg", "user created");
+			return returnMap;
+		} catch (Exception e) {
+			returnMap.put("isError", true);
+			returnMap.put("msg", "user not created");
+			return returnMap;
 		}
+		
 	}
 	
-
-
-
-//	@GetMapping("/all/{page}/{record}")
-//	private Page<User> getAllUsers(@PathVariable("page") Integer page, @PathVariable("record") Integer record,
-//			HttpServletRequest request) {
-//		try {
-//			Long userId = null;
-//			if (request.getAttribute("userId") != null) {
-//				userId = Long.valueOf(request.getAttribute("userId").toString());
-//			} else {
-//				System.out.println(" @@@ user not found of this userId @@@");
-//				return null;
-//			}
-//			Pageable pageable = PageRequest.of(page, record);
-//			User user = userRepository.findById(userId).get();
-//			if (user.getUserType()==1) {
-//				System.out.println("comes for all users");
-//				return userRepository.findAllUser(1, pageable);
-//			}else {
-//				return userRepository.findAllByUserType(3L, pageable);
-//			}
-//			
-////			return this.userRepository.getAllUsers(pageable);
-//		} catch (Exception ex) {
-//			ex.printStackTrace();
-//			return null;
-//		}
-//
-//	}
-
-
-	@PostMapping("/get")
-	private User getOneUser(@RequestBody User user, HttpServletRequest request) {
-		try {
-			Long userId = null;
-			if (request.getAttribute("userId") != null) {
-				userId = Long.valueOf(request.getAttribute("userId").toString());
-			} else {
-				System.out.println(" @@@ user not found of this userId @@@");
-				return null;
-			}
-			return this.userRepository.findById(user.getId()).get();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			return null;
-		}
-
-	}
-
-
-	@PostMapping("/create")
-	private HashMap<String, Object> createUser(@RequestBody User userRequest,
-			HttpServletRequest request) {
-		Gson gson = new Gson();
-		HashMap<String, Object> returnMap = new HashMap<>();
-		try {
-			Long userId = null;
-			if (request.getAttribute("userId") != null) {
-				userId = Long.valueOf(request.getAttribute("userId").toString());
-			} else {
-				returnMap.put("isError", true);
-				returnMap.put("msg", "Invalid Token found");
-				return returnMap;
-			}
-			List<User> isExists = userRepository.isExists(userRequest.getEmail(),
-					userRequest.getUsername());
-			if (isExists.size() != 0) {
-				returnMap.put("isError", true);
-				returnMap.put("msg", "User all ready exists..");
-				return returnMap;
-			}
-			User user = userService.saveUser(false, userRequest);
-			if (user==null) {
-				returnMap.put("isError", true);
-				returnMap.put("msg", "User not created");
-				return returnMap;
-			}
-			userRepository.save(user);
-			returnMap.put("isError", false);
-			returnMap.put("msg", "User created successfully.");
-			return returnMap;
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			returnMap.put("msg", "Getting exception...");
-			returnMap.put("isError", true);
-			return returnMap;
-		}
-	}
-	@PostMapping("/update")
-	private HashMap<String, Object> updateUser(@RequestBody User userRequest,
-			HttpServletRequest request) {
-		Gson gson = new Gson();
-		HashMap<String, Object> returnMap = new HashMap<>();
-		try {
-			Long userId = null;
-			if (request.getAttribute("userId") != null) {
-				userId = Long.valueOf(request.getAttribute("userId").toString());
-			} else {
-				returnMap.put("isError", true);
-				returnMap.put("msg", "Invalid Token found");
-				return returnMap;
-			}
-			User user2 = userRepository.findById(userRequest.getId()).get();
-			List<User> isExists2 = userRepository.isExists2( userRequest.getEmail(),
-					userRequest.getUsername(), user2.getId());
-			if (isExists2.size() != 0) {
-				returnMap.put("isError", true);
-				returnMap.put("msg", "<small>User all ready exists..</small>");
-				return returnMap;
-			}
-			User user = userService.saveUser(true, userRequest);
-			if (user==null) {
-				returnMap.put("isError", true);
-				returnMap.put("msg", "User not updated");
-				return returnMap;
-			}
-//			user.setUpdatedBy(userId);
-			user.setPassword(user2.getPassword());
-			userRepository.save(user);
-			returnMap.put("isError", false);
-			returnMap.put("msg", "<small>User updated successfully.<small>");
-			return returnMap;
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			returnMap.put("msg", "Not updated");
-			returnMap.put("isError", true);
-			return returnMap;
-		}
-	}
-	@PostMapping("/delete")
-	private Map<String, Object> deleteUser(@RequestBody User u, HttpServletRequest request) {
-		HashMap<String, Object> returnMap = new HashMap<>();
-		try {
-			Long userId = null;
-
-			if (request.getAttribute("userId") != null) {
-				userId = Long.valueOf(request.getAttribute("userId").toString());
-			} else {
-				returnMap.put("isError", true);
-				returnMap.put("msg", "User not found for this transaction.");
-				return returnMap;
-			}
-			User user = userRepository.findById(u.getId()).get();
-			user.setStatus("DEACTIVE");
-//			user.setUpdatedAt(new Timestamp(new Date().getTime()));
-			userRepository.save(user);
-			returnMap.put("isError", false);
-			returnMap.put("msg", "User deleted");
-			return returnMap;
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			returnMap.put("msg", "User not deleted");
-			returnMap.put("isError", true);
-			return returnMap;
-		}
-
-	}
-
-
 
 
 
