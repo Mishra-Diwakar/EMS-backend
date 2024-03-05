@@ -47,11 +47,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	@Query(nativeQuery = true, value = "UPDATE User u SET u.profile=?1 WHERE u.email=?2 AND u.username=?3 AND u.id=?4")
 	public void updateUserProfile(String profile,String email,String username, long id);
 	
-	@Query(nativeQuery = true, value = "SELECT * from user where mobile=?1 OR email=?2 OR username=?3 OR aadhar=?4")
-	List<User> isExists(String mobile,String email ,String username,String adhaarId);
+	@Query(nativeQuery = true, value = "SELECT * from user where email=?1 OR username=?2")
+	List<User> isExists(String email ,String username);
 
-	@Query(nativeQuery = true, value = "SELECT * from user where id!=?5 and (mobile=?1 OR email=?2 OR username=?3 OR adhaar=?4)")
-	List<User> isExists2(String mobile,String email ,String username,String adhaarId, Long id);
+	@Query(nativeQuery = true, value = "SELECT * from user where id!=?3 and (email=?1 OR username=?2)")
+	List<User> isExists2(String email ,String username,Long id);
 
 	@Query(nativeQuery = true, value = "SELECT * from user where isApiUser>=1 order by id desc")
 	Page<User> getAllUsers(Pageable p);

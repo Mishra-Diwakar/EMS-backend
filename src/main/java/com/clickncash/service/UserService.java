@@ -66,13 +66,13 @@ public class UserService {
 	public User saveUser(boolean isEdit,User userRequest) {
 		try {
 			if (isEdit) {
-				userRequest.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
+//				userRequest.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
 				userRequest.setStatus(userRequest.getStatus());
 				return userRequest;
 			}
 			userRequest.setStatus("ACTIVE");
 			userRequest.setPassword(passwordEncoder.encode(userRequest.getPassword()));
-			userRequest.setCreatedAt(new Timestamp(System.currentTimeMillis()));
+//			userRequest.setCreatedAt(new Timestamp(System.currentTimeMillis()));
 			
 			return userRequest;
 		} catch (Exception e) {

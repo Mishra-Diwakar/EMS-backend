@@ -65,7 +65,7 @@ public class LoginController {
 		}
 		String jwt = tokenProvider.generateToken(authentication);
 		//String permission = this.mergeUserPerissions(user.getRoles());
-		user.setLoginTime(new Timestamp(System.currentTimeMillis()));
+//		user.setLoginTime(new Timestamp(System.currentTimeMillis()));
 		userRepository.save(user);
 		Response<AuthResponse> response = new Response<>();
 		response.setMessages(Arrays.asList("Token Generated Successfully.")); //Arrays.asList(environment.getProperty("token.generated"))

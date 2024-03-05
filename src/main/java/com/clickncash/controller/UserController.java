@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.clickncash.ImageUploader.Images;
 import com.clickncash.entity.User;
 import com.clickncash.model.UserRequest;
 import com.clickncash.repository.UserRepository;
@@ -66,33 +65,33 @@ public class UserController {
 
 
 
-	@GetMapping("/all/{page}/{record}")
-	private Page<User> getAllUsers(@PathVariable("page") Integer page, @PathVariable("record") Integer record,
-			HttpServletRequest request) {
-		try {
-			Long userId = null;
-			if (request.getAttribute("userId") != null) {
-				userId = Long.valueOf(request.getAttribute("userId").toString());
-			} else {
-				System.out.println(" @@@ user not found of this userId @@@");
-				return null;
-			}
-			Pageable pageable = PageRequest.of(page, record);
-			User user = userRepository.findById(userId).get();
-			if (user.getUserType()==1) {
-				System.out.println("comes for all users");
-				return userRepository.findAllUser(1, pageable);
-			}else {
-				return userRepository.findAllByUserType(3L, pageable);
-			}
-			
-//			return this.userRepository.getAllUsers(pageable);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			return null;
-		}
-
-	}
+//	@GetMapping("/all/{page}/{record}")
+//	private Page<User> getAllUsers(@PathVariable("page") Integer page, @PathVariable("record") Integer record,
+//			HttpServletRequest request) {
+//		try {
+//			Long userId = null;
+//			if (request.getAttribute("userId") != null) {
+//				userId = Long.valueOf(request.getAttribute("userId").toString());
+//			} else {
+//				System.out.println(" @@@ user not found of this userId @@@");
+//				return null;
+//			}
+//			Pageable pageable = PageRequest.of(page, record);
+//			User user = userRepository.findById(userId).get();
+//			if (user.getUserType()==1) {
+//				System.out.println("comes for all users");
+//				return userRepository.findAllUser(1, pageable);
+//			}else {
+//				return userRepository.findAllByUserType(3L, pageable);
+//			}
+//			
+////			return this.userRepository.getAllUsers(pageable);
+//		} catch (Exception ex) {
+//			ex.printStackTrace();
+//			return null;
+//		}
+//
+//	}
 
 
 	@PostMapping("/get")
@@ -128,8 +127,8 @@ public class UserController {
 				returnMap.put("msg", "Invalid Token found");
 				return returnMap;
 			}
-			List<User> isExists = userRepository.isExists(userRequest.getMobile(), userRequest.getEmail(),
-					userRequest.getUsername(), userRequest.getAadhar());
+			List<User> isExists = userRepository.isExists(userRequest.getEmail(),
+					userRequest.getUsername());
 			if (isExists.size() != 0) {
 				returnMap.put("isError", true);
 				returnMap.put("msg", "User all ready exists..");
@@ -141,7 +140,6 @@ public class UserController {
 				returnMap.put("msg", "User not created");
 				return returnMap;
 			}
-			user.setCreatedBy(userId);
 			userRepository.save(user);
 			returnMap.put("isError", false);
 			returnMap.put("msg", "User created successfully.");
@@ -168,8 +166,8 @@ public class UserController {
 				return returnMap;
 			}
 			User user2 = userRepository.findById(userRequest.getId()).get();
-			List<User> isExists2 = userRepository.isExists2(userRequest.getMobile(), userRequest.getEmail(),
-					userRequest.getUsername(), userRequest.getAadhar(),user2.getId());
+			List<User> isExists2 = userRepository.isExists2( userRequest.getEmail(),
+					userRequest.getUsername(), user2.getId());
 			if (isExists2.size() != 0) {
 				returnMap.put("isError", true);
 				returnMap.put("msg", "<small>User all ready exists..</small>");
@@ -181,7 +179,7 @@ public class UserController {
 				returnMap.put("msg", "User not updated");
 				return returnMap;
 			}
-			user.setUpdatedBy(userId);
+//			user.setUpdatedBy(userId);
 			user.setPassword(user2.getPassword());
 			userRepository.save(user);
 			returnMap.put("isError", false);
@@ -209,7 +207,7 @@ public class UserController {
 			}
 			User user = userRepository.findById(u.getId()).get();
 			user.setStatus("DEACTIVE");
-			user.setUpdatedAt(new Timestamp(new Date().getTime()));
+//			user.setUpdatedAt(new Timestamp(new Date().getTime()));
 			userRepository.save(user);
 			returnMap.put("isError", false);
 			returnMap.put("msg", "User deleted");
