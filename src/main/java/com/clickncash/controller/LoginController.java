@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,6 +16,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,5 +96,14 @@ public class LoginController {
 			returnMap.put("msg", "Account not created..!");
 			return returnMap;
 		}
-	}	
+		
+		
+	}
+	@GetMapping("/test")
+	public HashMap<String, Object> testing(){
+		HashMap<String, Object> returnMap = new HashMap<String, Object>();
+		returnMap.put("isError", false);
+		returnMap.put("msg", "Testing done");
+		return returnMap;
+	}
 }
