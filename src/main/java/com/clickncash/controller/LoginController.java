@@ -45,6 +45,9 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@PostMapping("/login")
 	public ResponseEntity<?> authenticateUser(@RequestBody AuthRequest authRequest) throws FieldException {
 		Authentication authentication = authenticationManager.authenticate(
@@ -68,6 +71,7 @@ public class LoginController {
 		return ResponseEntity.ok().body(response);
 	}
 	
+	
 	@PostMapping("/signup")
 	public HashMap<String, Object> signUp(@RequestBody User user) {
 		HashMap<String, Object> returnMap = new HashMap<String, Object>();
@@ -78,6 +82,7 @@ public class LoginController {
 //			user.setUserType(1L);
 //			user.setStatus("ACTIVE");
 			System.out.println("username:"+user.getUsername());
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			userRepository.save(user);
 			
 			returnMap.put("isError", false);
