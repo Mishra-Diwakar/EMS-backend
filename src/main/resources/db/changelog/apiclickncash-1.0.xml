@@ -1,0 +1,1927 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+	<changeSet author="javan (generated)" id="1654427438372-1">
+		<createTable tableName="Account_Verify">
+			 <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+			<column name="txnId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="userid" type="INT">
+				<constraints nullable="false" />
+			</column>			
+			<column name="operator" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="amount" type="DOUBLE(10, 6)">
+				<constraints nullable="false" />
+			</column>
+			<column name="bankAccount" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ifscCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="payStatus" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="statusCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="orderId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="msg" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="beneficiaryName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="agentId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="api" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="sourceType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-2">
+		<createTable tableName="Application_Role">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="permissions" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+
+	<changeSet author="javan (generated)" id="1654427438372-3">
+		<createTable tableName="Bank_Beneficiary">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="senderId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="bankName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="branchName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="accountNo" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="accountType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ifscCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-4">
+		<createTable tableName="Bank_Details">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="userType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="userName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="bankName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="branchName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="accountType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="accountNumber" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="ifscCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-5">
+		<createTable tableName="Bank_Master">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="bankName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ifscCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="bankLogo" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-6">
+		<createTable tableName="Bbps_Operator">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="serviceName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="serviceCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="serviceType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mplanOperator" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-7">
+		<createTable tableName="Credit_Debit_Fund">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="txnId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="senderId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="receiverId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="amount" type="DOUBLE(10, 6)">
+				<constraints nullable="false" />
+			</column>
+			<column name="type" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-8">
+		<createTable tableName="Customer_Enquiry">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="wlId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="subject" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="message" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-9">
+		<createTable tableName="Fund_Request">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="userType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="bankId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="ifscCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="toBankName" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="paymentMode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="paymentProof" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="checkNo" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="checkDate" type="DATE">
+				<constraints nullable="false" />
+			</column>
+			<column name="amount" type="DOUBLE(10,6)">
+				<constraints nullable="false" />
+			</column>
+			<column name="requestedBy" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="termAccept" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="pancardImg" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="aadhaarFront" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="aadhaarBack" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="creditcardImg" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="finalAmount" type="DOUBLE(10,6)">
+				<constraints nullable="false" />
+			</column>
+			<column name="isLockedAmount" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="remark" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updateRemarks" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="fundReqId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-10">
+		<createTable tableName="Ip_Count_Log">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="ipAddress" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="count" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="countOtp" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="domain" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-11">
+		<createTable tableName="Irctc_Booking">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="shopName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="moble" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="address" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="payStatus" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-12">
+		<createTable tableName="Loan">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="loanType" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="panNo" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="aadhaarNo" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="amount" type="DOUBLE(10,2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="aadhaarFront" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="aadhaarBack" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="panImg" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="bankStatement" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="salarySlip" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="itr" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-13">
+		<createTable tableName="Loan_Type">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-14">
+		<createTable tableName="Mpos">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="type" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="senderName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="shopName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="quantity" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="address" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-15">
+		<createTable tableName="News">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="creatorId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="creatorType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="news" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-16">
+		<createTable tableName="Otp_Log">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="otp" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="userName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="userType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-17">
+		<createTable tableName="Page_Settings">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="aboutText" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="title" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="slogen" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="busFlight" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="busBooking" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="travel" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="twkMsg" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="addMoney" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="retailerprc" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="distributerPrc" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="masterDistributerPrc" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="retailerTitle" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="retailerDesc" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="distributerTitle" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="distributerDesc" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="masterDistributerTitle" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="masterDistributerDesc" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-18">
+		<createTable tableName="Pancard_Account">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="agentId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="txnId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="aadhaar" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="pancard" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="shop" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="city" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="pinCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="contactPersonName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="url" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-19">
+		<createTable tableName="Sender">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="firstName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="dob" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="gender" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="pincode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="state" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="address" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="district" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="city" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="documentType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="documentId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="regOtp" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-20">
+		<createTable tableName="Site_Settings">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="logo" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="twitter" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="facebook" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="linkedin" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="googleplus" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="youtube" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="appLink" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="officeAdd" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="companyName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="phone" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="copyRight" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="whatsappNumber" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="whatsappNumberSup" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="policy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="terms" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="smsApi" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="theme" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-21">
+		<createTable tableName="TPin_Otp">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="otp" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-22">
+		<createTable tableName="Transaction_Api">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="serviceType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="providerName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="key" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="salt" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-23">
+		<createTable tableName="User">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="username" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="password" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="main_wallet" type="DOUBLE(10,06)">
+				<constraints nullable="false" />
+			</column>
+			<column name="apes_wallet" type="DOUBLE(10,6)">
+				<constraints nullable="false" />
+			</column>
+			<column name="user_key" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="name" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="parentId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="otpNum" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="userCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="tPin" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastLogout" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="usertoken" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="profile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="verifyUserKyc" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="logo" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="domain" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="balance_enq" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="accountVerifyCharge" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="miniStatement" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="serverStatus" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="appStatus" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="appMsg" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="passVerify" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="dob" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="shopName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="address" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="city" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="state" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="pinCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="userIp" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="serviceAccessId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="selectedPackageCommissionId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="dmtSourceApi" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="payoutSourceApi" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="adhaarId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="panId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="userTypeId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="apiUserId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>			
+			<column name="aepsAgentCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ecoAgentCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-24">
+		<createTable tableName="User_Kyc">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="UserKyc" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="userCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="firstName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="lastName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="mobile" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="dob" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="panNumber" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="shopName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="city" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="state" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="pincode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="panCard" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="aadharFront" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="aadharBack" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="devicenumber" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="serviceStatus" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="status" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-25">
+		<createTable tableName="User_Login_Log">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="userType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ipAddress" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="serverLog" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="loginTime" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="logoutTime" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column name="domainName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ipPort" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="currentCountry" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="currentCity" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="locationLog" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="currentBrowser" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="loginStatus" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-26">
+		<createTable tableName="User_Service">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userid" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="serviceid" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-27">
+		<createTable tableName="User_Transaction_Api">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userid" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="transactionApiId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="key" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="token" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-28">
+		<createTable tableName="User_Type">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="Type" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="Discription" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-29">
+		<createTable tableName="Virtual_Account">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="agentId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="txnid" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="merchantId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="idAccount" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="idReceivers" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="accountNo" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="ifscCode" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="upiId" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="api" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="operator" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="serviceType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="log" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+
+	<changeSet author="javan (generated)" id="1654426310181-30">
+		<createTable tableName="permission">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="user_id" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="dmt" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="0" name="dmt2" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="expdmt" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="payout" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="bbps" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="recharge" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="aeps" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="aadhar_pay" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="pancard" type="VARCHAR(255)" />
+			<column defaultValue="1" name="insurance" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="shoping" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="travel" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="cash_deposit"
+				type="VARCHAR(100)" />
+			<column defaultValue="1" name="aeps_prime" type="VARCHAR(255)" />
+			<column defaultValue="1" name="prepaid_card"
+				type="VARCHAR(255)" />
+			<column defaultValue="1" name="my_comm" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="earn_comm" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="recharge_comm"
+				type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="bbps_comm" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="dmt_comm" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="epdmt_comm" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="payout_comm"
+				type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="aeps_comm" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="cash_deposit_comm"
+				type="VARCHAR(255)" />
+			<column defaultValue="1" name="aadhaar_pay_comm"
+				type="VARCHAR(255)" />
+			<column defaultValue="1" name="retailer" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="distributer"
+				type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="master" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="kyc" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="upgrade_user"
+				type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="show_fund" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="credit" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="1" name="debit" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-31">
+		<createTable tableName="Document">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="DocumentName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="DocumentType" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-32">
+		<createTable tableName="Images">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="documentNumber" type="VARCHAR(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="documentId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="image" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="width" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="height" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-33">
+		<createTable tableName="Rechange_Providers">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="provider" type="VARCHAR(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-34">
+		<createTable tableName="Services">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="service_type" type="VARCHAR(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="service_code" type="VARCHAR(30)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-35">
+		<createTable tableName="User_Packages">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="userId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="packageId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-36">
+		<createTable tableName="Package_Comission">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="packageName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>			
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="javan (generated)" id="1654427438372-36-1">
+		<createTable tableName="Package_Comission_Row">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="packageName" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="packageCommissionId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="serviceType" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="rechargeProviderId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="amount_from" type="DOUBLE(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="amount_to" type="DOUBLE(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="commissionTypeFlat" type="VARCHAR(10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="cashback" type="DOUBLE(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="masterDistributorCommision" type="DOUBLE(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="distributorCommision" type="DOUBLE(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="retailerCommision" type="DOUBLE(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="wlCommision" type="DOUBLE(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="tds" type="DOUBLE(10, 2)">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-37">
+		<createTable tableName="Callback">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="txn_id" type="VARCHAR(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="request_data" type="TEXT">
+				<constraints nullable="false" />
+			</column>
+			<column name="log_data" type="TEXT">
+				<constraints nullable="false" />
+			</column>
+			<column name="server_detail" type="TEXT">
+				<constraints nullable="false" />
+			</column>
+			<column name="service_type" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="javan (generated)" id="1654427438372-38">
+		<createTable tableName="Log">
+			<column autoIncrement="true" name="id" type="INT">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="txnId" type="INT">
+				<constraints nullable="false" />
+			</column>
+			<column name="requestData" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="logData" type="TEXT">
+				<constraints nullable="false" />
+			</column>
+			<column name="serverDetail" type="TEXT">
+				<constraints nullable="false" />
+			</column>
+			<column name="serviceType" type="TEXT">
+				<constraints nullable="false" />
+			</column>
+			<column name="createdBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="updatedBy" type="VARCHAR(255)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="createdDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueComputed="CURRENT_TIMESTAMP"
+				name="updatedDate" type="TIMESTAMP">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+</databaseChangeLog>
