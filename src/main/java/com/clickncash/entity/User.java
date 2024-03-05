@@ -17,7 +17,6 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Long refId;
 	private String status;//ACTIVE - DEACTIVE
 	private Timestamp createdAt;
 	private Timestamp loginTime;
@@ -32,33 +31,13 @@ public class User {
     private String name;
     private String gender;
     private Long userType;
-    private String parent;
-    private String education;
     private String dob;
-    private boolean isWhatsApp;
     private String address;				//  address	
 	private String pincode;
 	private String state;
 	private String city;
-	private String perAddress;
-	private String perPincode;
-	private String perState;
-	private String perCity;
-	private boolean sameAsCurrent;
 	private String aadhar;				//	id proof
-	private String pancard;
-	private String voterid;
-	private String jobTitle;			//	office details
-	private String  monthlyIncome;
-	private String officeMobile;
-	private String officeAddress;
-	private String officePincode;
-	private String officeCity;
-	private String nomineeName;			//	nominee details
-	private String nomineeParent;
-	private String nomineeMobile;
-	private String nomineeDob;
-	private String relation;
+	private String pancard;	
 	@Column(name = "account_non_locked")
 	private boolean accountNonLocked;   
 	@Column(name = "failed_attempt")
@@ -66,47 +45,24 @@ public class User {
 	@Column(name = "lock_time")
 	private Date lockTime;
 	
-	
 	public Long getId() {
 		return id;
 	}
-
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-	public Long getRefId() {
-		return refId;
-	}
-
-
-	public void setRefId(Long refId) {
-		this.refId = refId;
-	}
-
-
 	public String getStatus() {
 		return status;
 	}
-
-
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
-
-
 	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
-
-
 	public Timestamp getLoginTime() {
 		return loginTime;
 	}
@@ -227,25 +183,6 @@ public class User {
 	}
 
 
-	public String getParent() {
-		return parent;
-	}
-
-
-	public void setParent(String parent) {
-		this.parent = parent;
-	}
-
-
-	public String getEducation() {
-		return education;
-	}
-
-
-	public void setEducation(String education) {
-		this.education = education;
-	}
-
 
 	public String getDob() {
 		return dob;
@@ -256,15 +193,6 @@ public class User {
 		this.dob = dob;
 	}
 
-
-	public boolean isWhatsApp() {
-		return isWhatsApp;
-	}
-
-
-	public void setWhatsApp(boolean isWhatsApp) {
-		this.isWhatsApp = isWhatsApp;
-	}
 
 
 	public String getAddress() {
@@ -307,54 +235,7 @@ public class User {
 	}
 
 
-	public String getPerAddress() {
-		return perAddress;
-	}
 
-
-	public void setPerAddress(String perAddress) {
-		this.perAddress = perAddress;
-	}
-
-
-	public String getPerPincode() {
-		return perPincode;
-	}
-
-
-	public void setPerPincode(String perPincode) {
-		this.perPincode = perPincode;
-	}
-
-
-	public String getPerState() {
-		return perState;
-	}
-
-
-	public void setPerState(String perState) {
-		this.perState = perState;
-	}
-
-
-	public String getPerCity() {
-		return perCity;
-	}
-
-
-	public void setPerCity(String perCity) {
-		this.perCity = perCity;
-	}
-
-
-	public boolean isSameAsCurrent() {
-		return sameAsCurrent;
-	}
-
-
-	public void setSameAsCurrent(boolean sameAsCurrent) {
-		this.sameAsCurrent = sameAsCurrent;
-	}
 
 
 	public String getAadhar() {
@@ -376,125 +257,6 @@ public class User {
 		this.pancard = pancard;
 	}
 
-
-	public String getVoterid() {
-		return voterid;
-	}
-
-
-	public void setVoterid(String voterid) {
-		this.voterid = voterid;
-	}
-
-
-	public String getJobTitle() {
-		return jobTitle;
-	}
-
-
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
-	}
-
-
-	public String getMonthlyIncome() {
-		return monthlyIncome;
-	}
-
-
-	public void setMonthlyIncome(String monthlyIncome) {
-		this.monthlyIncome = monthlyIncome;
-	}
-
-
-	public String getOfficeMobile() {
-		return officeMobile;
-	}
-
-
-	public void setOfficeMobile(String officeMobile) {
-		this.officeMobile = officeMobile;
-	}
-
-
-	public String getOfficeAddress() {
-		return officeAddress;
-	}
-
-
-	public void setOfficeAddress(String officeAddress) {
-		this.officeAddress = officeAddress;
-	}
-
-
-	public String getOfficePincode() {
-		return officePincode;
-	}
-
-
-	public void setOfficePincode(String officePincode) {
-		this.officePincode = officePincode;
-	}
-
-
-	public String getOfficeCity() {
-		return officeCity;
-	}
-
-
-	public void setOfficeCity(String officeCity) {
-		this.officeCity = officeCity;
-	}
-
-
-	public String getNomineeName() {
-		return nomineeName;
-	}
-
-
-	public void setNomineeName(String nomineeName) {
-		this.nomineeName = nomineeName;
-	}
-
-
-	public String getNomineeParent() {
-		return nomineeParent;
-	}
-
-
-	public void setNomineeParent(String nomineeParent) {
-		this.nomineeParent = nomineeParent;
-	}
-
-
-	public String getNomineeMobile() {
-		return nomineeMobile;
-	}
-
-
-	public void setNomineeMobile(String nomineeMobile) {
-		this.nomineeMobile = nomineeMobile;
-	}
-
-
-	public String getNomineeDob() {
-		return nomineeDob;
-	}
-
-
-	public void setNomineeDob(String nomineeDob) {
-		this.nomineeDob = nomineeDob;
-	}
-
-
-	public String getRelation() {
-		return relation;
-	}
-
-
-	public void setRelation(String relation) {
-		this.relation = relation;
-	}
 
 
 	public boolean isAccountNonLocked() {
@@ -527,17 +289,14 @@ public class User {
 	}
 
 
-	public User(Long id, Long refId, String status, Timestamp createdAt, Timestamp loginTime, Timestamp updatedAt,
-			Long updatedBy, String otp, Long createdBy, String username, String email, String mobile, String password,
-			String name, String gender, Long userType, String parent, String education, String dob, boolean isWhatsApp,
-			String address, String pincode, String state, String city, String perAddress, String perPincode,
-			String perState, String perCity, boolean sameAsCurrent, String aadhar, String pancard, String voterid,
-			String jobTitle, String monthlyIncome, String officeMobile, String officeAddress, String officePincode,
-			String officeCity, String nomineeName, String nomineeParent, String nomineeMobile, String nomineeDob,
-			String relation, boolean accountNonLocked, int failedAttempt, Date lockTime) {
+
+
+	public User(Long id, String status, Timestamp createdAt, Timestamp loginTime, Timestamp updatedAt, Long updatedBy,
+			String otp, Long createdBy, String username, String email, String mobile, String password, String name,
+			String gender, Long userType, String dob, String address, String pincode, String state, String city,
+			String aadhar, String pancard, boolean accountNonLocked, int failedAttempt, Date lockTime) {
 		super();
 		this.id = id;
-		this.refId = refId;
 		this.status = status;
 		this.createdAt = createdAt;
 		this.loginTime = loginTime;
@@ -552,39 +311,17 @@ public class User {
 		this.name = name;
 		this.gender = gender;
 		this.userType = userType;
-		this.parent = parent;
-		this.education = education;
 		this.dob = dob;
-		this.isWhatsApp = isWhatsApp;
 		this.address = address;
 		this.pincode = pincode;
 		this.state = state;
 		this.city = city;
-		this.perAddress = perAddress;
-		this.perPincode = perPincode;
-		this.perState = perState;
-		this.perCity = perCity;
-		this.sameAsCurrent = sameAsCurrent;
 		this.aadhar = aadhar;
 		this.pancard = pancard;
-		this.voterid = voterid;
-		this.jobTitle = jobTitle;
-		this.monthlyIncome = monthlyIncome;
-		this.officeMobile = officeMobile;
-		this.officeAddress = officeAddress;
-		this.officePincode = officePincode;
-		this.officeCity = officeCity;
-		this.nomineeName = nomineeName;
-		this.nomineeParent = nomineeParent;
-		this.nomineeMobile = nomineeMobile;
-		this.nomineeDob = nomineeDob;
-		this.relation = relation;
 		this.accountNonLocked = accountNonLocked;
 		this.failedAttempt = failedAttempt;
 		this.lockTime = lockTime;
 	}
-
-
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
