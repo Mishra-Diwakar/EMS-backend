@@ -12,14 +12,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 @PropertySource(value = "classpath:message.properties")
-public class SMSystem extends SpringBootServletInitializer{
+public class EMS extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
-		SpringApplication.run(SMSystem.class, args);
+		SpringApplication.run(EMS.class, args);
 	}
 
 	@Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(SMSystem.class);
+        return builder.sources(EMS.class);
     } 
 }
